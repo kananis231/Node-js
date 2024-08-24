@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>New Books Update</h1>
+
+    <form action="/editData?id=<%=data.id%>" method="post">
+        <input type="text" name="title" placeholder="Enter the title">
+        <input type="text" name="author" placeholder="Enter the author">
+        <input type="number" name="publishedYear" placeholder="Enter the published year">
+        <input type="number" name="pages" placeholder="Enter the pages">
+        <input type="number" name="price" placeholder="Enter the price">
+        <input type="number" name="publishedcopy" placeholder="Enter the published copy">
+        <input type="submit">
+    </form>
+</body>
+</html>

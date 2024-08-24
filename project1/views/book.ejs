@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Books Store</h1>
+
+    <form action="/bookdata" method="post">
+        <input type="text" name="title" placeholder="Enter the title">
+        <input type="text" name="author" placeholder="Enter the author">
+        <input type="number" name="publishedYear" placeholder="Enter the published year">
+        <input type="number" name="pages" placeholder="Enter the pages">
+        <input type="number" name="price" placeholder="Enter the price">
+        <input type="number" name="publishedcopy" placeholder="Enter the published copy">
+        <input type="submit">
+    </form>
+    <table style="width: 100%;" border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Published Year</th>
+            <th>Pages</th>
+            <th>Price</th>
+            <th>Published Copy</th>
+            <th>Action</th>
+        </tr>
+        <%data.map((e,i)=> {%>
+            <tr>
+                <td><%=e.title%></td>
+                <td><%=e.author%></td>
+                <td><%=e.publishedYear%></td>
+                <td><%=e.pages%></td>
+                <td><%=e.price%></td>
+                <td><%=e.publishedcopy%></td>
+                <td class="action-buttons">
+                <a href="/delete?id=<%=e._id%>" class="btn btn-delete">Delete</a>&nbsp;&nbsp;
+                <a href="/edit?id=<%=e._id%>" class="btn btn-edit">Edit</a>
+                
+                </td>
+            </tr>
+        <%})%>
+    </table>
+</body>
+</html>
