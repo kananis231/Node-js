@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <form action="/insert" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Enter your name" name="name" >
+        <input type="text" placeholder="Enter your Subject" name="subject" >
+        <input type="file" name="image">
+        <input type="submit">
+    </form>
+    <table border="1" width="45%" style="background-color: rgba(0, 37, 116, 0.829);  color: white; font-weight: bold;">
+        <tr>
+            <th style="padding: 10px;">Name</th>
+            <th style="padding: 10px;">Subject</th>
+            <th style="padding: 10px;">Image</th>
+            <th style="padding: 10px;">Action</th>
+        </tr>
+        <%data.map((e,i)=> {%>
+            <tr>
+                <td style="margin: 40px;"><%=e.name%></td>
+                <td style="margin: 40px;"><%=e.subject%></td>
+                <td><img src="<%=e.image%>" alt="image" width="100px" height="100px"></td>
+                <td>
+                <a href="/delete?id=<%=e._id%>"><button style="background-color: red; color: white; font-weight: bold; box-shadow: 0px 0px 7px 0px red;">Delete</button></a>&nbsp;&nbsp;
+                <a href="/edit?id=<%=e._id%>"><button style="background-color: green; color: white; font-weight: bold; box-shadow: 0px 0px 7px 0px green;">Edit</button></a>
+                
+                </td>
+            </tr>
+        <%})%>
+    </table>
+</body>
+</html>
