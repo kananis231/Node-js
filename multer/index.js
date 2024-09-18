@@ -41,7 +41,7 @@ app.get("/edit", async(req,res)=>{
 })
 app.post("/editData", upload, async(req,res)=>{
     let data = await crudSchema.findById(req.query.id);
-    let image = "";
+    let image = data.image;
     if(req.file){
         req.body.image = req.file.path;
     }else{
